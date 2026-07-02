@@ -153,9 +153,9 @@
         </div>
 
         <div class="product-preview-grid">
-          <div class="product-preview-image" style="height: 100%;">
-            <div style="width: 100%; height: 100%; border-radius: var(--rounded-lg); overflow: hidden; border: 1px solid var(--color-border); background: var(--color-surface-container);">
-              <img v-if="hp.product_featured_image" :src="'/storage/' + hp.product_featured_image" alt="" style="width: 100%; height: 100%; object-fit: cover;" />
+          <div class="product-preview-image" style="height: 100%; display: flex; align-items: center; justify-content: center;">
+            <div style="width: 100%; height: 100%; border-radius: var(--rounded-lg); overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 24px;">
+              <img v-if="hp.product_featured_image" :src="'/storage/' + hp.product_featured_image" alt="" style="max-width: 100%; max-height: 480px; object-fit: contain;" />
               <div v-else style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 64px;">🌱</div>
             </div>
           </div>
