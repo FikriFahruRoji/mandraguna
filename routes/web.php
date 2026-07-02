@@ -75,3 +75,28 @@ Route::middleware('auth')->prefix('panel-umkm')->name('admin.')->group(function 
         return redirect()->route('admin.dashboard')->with('success', 'Storage link berhasil dibuat.');
     })->name('storage-link');
 });
+
+// Database Helpers for cPanel (without SSH)
+Route::get('/run-migrations', function () {
+    if (request('pass') !== 'mandraguna123') {
+        return 'Unauthorized';
+    }
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        return 'Migration successful:<br><pre>' . Artisan::output() . '</pre>';
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
+
+Route::get('/run-seed', function () {
+    if (request('pass') !== 'mandraguna123') {
+        return 'Unauthorized';
+    }
+    try {
+        Artisan::call('db:seed', ['--force' => true]);
+        return 'Seeding successful:<br><pre>' . Artisan::output() . '</pre>';
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
