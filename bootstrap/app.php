@@ -7,12 +7,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Symfony\Component\HttpFoundation\Response;
 
-$publicPath = is_dir(dirname(__DIR__, 2) . '/public_html')
-    ? dirname(__DIR__, 2) . '/public_html'
-    : dirname(__DIR__) . '/public';
-
 return Application::configure(basePath: dirname(__DIR__))
-    ->usePublicPath($publicPath)
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
         commands: __DIR__.'/../routes/console.php',
@@ -53,3 +48,9 @@ return Application::configure(basePath: dirname(__DIR__))
             return $response;
         });
     })->create();
+
+$app->usePublicPath(is_dir(dirname(__DIR__, 2) . '/public_html')
+    ? dirname(__DIR__, 2) . '/public_html'
+    : dirname(__DIR__) . '/public');
+
+return $app;
