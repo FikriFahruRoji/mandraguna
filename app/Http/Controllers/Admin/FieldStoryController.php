@@ -29,13 +29,10 @@ class FieldStoryController extends Controller
         $validated = $request->validate([
             'title'        => 'required|string|max:255',
             'title_en'     => 'nullable|string|max:255',
-            'title_ja'     => 'nullable|string|max:255',
             'excerpt'      => 'nullable|string|max:500',
             'excerpt_en'   => 'nullable|string|max:500',
-            'excerpt_ja'   => 'nullable|string|max:500',
             'content'      => 'required|string',
             'content_en'   => 'nullable|string',
-            'content_ja'   => 'nullable|string',
             'image'        => 'nullable|image|mimes:jpeg,png,jpg,webp,svg|max:2048',
             'is_published' => 'boolean',
         ]);
@@ -44,17 +41,12 @@ class FieldStoryController extends Controller
         if (isset($validated['content_en'])) {
             $validated['content_en'] = HtmlSanitizer::sanitize($validated['content_en']);
         }
-        if (isset($validated['content_ja'])) {
-            $validated['content_ja'] = HtmlSanitizer::sanitize($validated['content_ja']);
-        }
 
         // Sanitize plain-text fields
         $validated['title']   = strip_tags($validated['title']);
         if (isset($validated['title_en']))   $validated['title_en']   = strip_tags($validated['title_en']);
-        if (isset($validated['title_ja']))   $validated['title_ja']   = strip_tags($validated['title_ja']);
         if (isset($validated['excerpt']))    $validated['excerpt']    = strip_tags($validated['excerpt']);
         if (isset($validated['excerpt_en'])) $validated['excerpt_en'] = strip_tags($validated['excerpt_en']);
-        if (isset($validated['excerpt_ja'])) $validated['excerpt_ja'] = strip_tags($validated['excerpt_ja']);
 
         $validated['slug'] = Str::slug($validated['title']);
 
@@ -85,13 +77,10 @@ class FieldStoryController extends Controller
         $validated = $request->validate([
             'title'        => 'required|string|max:255',
             'title_en'     => 'nullable|string|max:255',
-            'title_ja'     => 'nullable|string|max:255',
             'excerpt'      => 'nullable|string|max:500',
             'excerpt_en'   => 'nullable|string|max:500',
-            'excerpt_ja'   => 'nullable|string|max:500',
             'content'      => 'required|string',
             'content_en'   => 'nullable|string',
-            'content_ja'   => 'nullable|string',
             'image'        => 'nullable|image|mimes:jpeg,png,jpg,webp,svg|max:2048',
             'is_published' => 'boolean',
         ]);
@@ -100,17 +89,12 @@ class FieldStoryController extends Controller
         if (isset($validated['content_en'])) {
             $validated['content_en'] = HtmlSanitizer::sanitize($validated['content_en']);
         }
-        if (isset($validated['content_ja'])) {
-            $validated['content_ja'] = HtmlSanitizer::sanitize($validated['content_ja']);
-        }
 
         // Sanitize plain-text fields
         $validated['title']   = strip_tags($validated['title']);
         if (isset($validated['title_en']))   $validated['title_en']   = strip_tags($validated['title_en']);
-        if (isset($validated['title_ja']))   $validated['title_ja']   = strip_tags($validated['title_ja']);
         if (isset($validated['excerpt']))    $validated['excerpt']    = strip_tags($validated['excerpt']);
         if (isset($validated['excerpt_en'])) $validated['excerpt_en'] = strip_tags($validated['excerpt_en']);
-        if (isset($validated['excerpt_ja'])) $validated['excerpt_ja'] = strip_tags($validated['excerpt_ja']);
 
         $validated['slug'] = Str::slug($validated['title']);
 

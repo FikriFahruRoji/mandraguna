@@ -16,9 +16,7 @@
           <button type="button" @click="activeTab = 'en'" class="tab-btn" :class="{ active: activeTab === 'en' }">
             🇬🇧 English
           </button>
-          <button type="button" @click="activeTab = 'ja'" class="tab-btn" :class="{ active: activeTab === 'ja' }">
-            🇯🇵 日本語
-          </button>
+
         </div>
 
         <!-- Tab Indonesia -->
@@ -61,25 +59,7 @@
           </div>
         </div>
 
-        <!-- Tab Japanese -->
-        <div v-show="activeTab === 'ja'">
-          <div class="form-group">
-            <label class="form-label" for="title_ja">Judul (JA)</label>
-            <input id="title_ja" type="text" class="form-input" v-model="form.title_ja" placeholder="Title in Japanese..." />
-            <p v-if="form.errors.title_ja" class="form-error">{{ form.errors.title_ja }}</p>
-          </div>
 
-          <div class="form-group">
-            <label class="form-label" for="excerpt_ja">Ringkasan (JA)</label>
-            <textarea id="excerpt_ja" class="form-input" v-model="form.excerpt_ja" rows="2" maxlength="500" placeholder="Brief summary of the field story in Japanese..."></textarea>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Konten (JA)</label>
-            <RichTextEditor v-model="form.content_ja" />
-            <p v-if="form.errors.content_ja" class="form-error">{{ form.errors.content_ja }}</p>
-          </div>
-        </div>
 
         <!-- Global Fields -->
         <div class="form-group" style="margin-top: 24px;">
@@ -132,13 +112,10 @@ function handleFileChange(event) {
 const form = useForm({
     title: props.fieldStory?.title || '',
     title_en: props.fieldStory?.title_en || '',
-    title_ja: props.fieldStory?.title_ja || '',
     excerpt: props.fieldStory?.excerpt || '',
     excerpt_en: props.fieldStory?.excerpt_en || '',
-    excerpt_ja: props.fieldStory?.excerpt_ja || '',
     content: props.fieldStory?.content || '',
     content_en: props.fieldStory?.content_en || '',
-    content_ja: props.fieldStory?.content_ja || '',
     image: null,
     is_published: props.fieldStory?.is_published ?? false,
 });

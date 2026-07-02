@@ -22,10 +22,7 @@
                   <span class="lang-tag">🇬🇧 EN</span>
                   <textarea :id="item.key + '_en'" class="form-input" v-model="form.settings_en[item.key]" rows="3" placeholder="English Content"></textarea>
                 </div>
-                <div class="input-lang-wrapper textarea-lang-wrapper" style="margin-top: 10px;">
-                  <span class="lang-tag">🇯🇵 JA</span>
-                  <textarea :id="item.key + '_ja'" class="form-input" v-model="form.settings_ja[item.key]" rows="3" placeholder="Japanese Content"></textarea>
-                </div>
+
               </template>
 
               <template v-else-if="item.type === 'iframe_embed'">
@@ -64,10 +61,7 @@
                   <span class="lang-tag">🇬🇧 EN</span>
                   <input :id="item.key + '_en'" type="text" class="form-input" v-model="form.settings_en[item.key]" placeholder="English Text" />
                 </div>
-                <div class="input-lang-wrapper" style="margin-top: 10px;">
-                  <span class="lang-tag">🇯🇵 JA</span>
-                  <input :id="item.key + '_ja'" type="text" class="form-input" v-model="form.settings_ja[item.key]" placeholder="Japanese Text" />
-                </div>
+
               </template>
             </div>
           </div>
@@ -106,7 +100,7 @@
 
                 <!-- Fields Side -->
                 <div class="slide-fields" style="display: flex; flex-direction: column; gap: 12px;">
-                  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                     <div class="form-group" style="margin: 0;">
                       <label class="form-label">Judul Slide (ID) *</label>
                       <input type="text" class="form-input" v-model="slide.title" placeholder="Masukkan judul slide..." required />
@@ -115,13 +109,9 @@
                       <label class="form-label">Judul Slide (EN)</label>
                       <input type="text" class="form-input" v-model="slide.title_en" placeholder="Enter slide title in English..." />
                     </div>
-                    <div class="form-group" style="margin: 0;">
-                      <label class="form-label">Judul Slide (JA)</label>
-                      <input type="text" class="form-input" v-model="slide.title_ja" placeholder="Enter slide title in Japanese..." />
-                    </div>
                   </div>
 
-                  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                     <div class="form-group" style="margin: 0;">
                       <label class="form-label">Subjudul Slide (ID)</label>
                       <textarea class="form-input" v-model="slide.subtitle" rows="2" placeholder="Masukkan deskripsi slide..."></textarea>
@@ -130,13 +120,9 @@
                       <label class="form-label">Subjudul Slide (EN)</label>
                       <textarea class="form-input" v-model="slide.subtitle_en" rows="2" placeholder="Enter slide description in English..."></textarea>
                     </div>
-                    <div class="form-group" style="margin: 0;">
-                      <label class="form-label">Subjudul Slide (JA)</label>
-                      <textarea class="form-input" v-model="slide.subtitle_ja" rows="2" placeholder="Enter slide description in Japanese..."></textarea>
-                    </div>
                   </div>
 
-                  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                     <div class="form-group" style="margin: 0;">
                       <label class="form-label">Teks Tombol (CTA - ID)</label>
                       <input type="text" class="form-input" v-model="slide.cta_text" placeholder="Contoh: Lihat Detail" />
@@ -144,10 +130,6 @@
                     <div class="form-group" style="margin: 0;">
                       <label class="form-label">Teks Tombol (CTA - EN)</label>
                       <input type="text" class="form-input" v-model="slide.cta_text_en" placeholder="Example: View Details" />
-                    </div>
-                    <div class="form-group" style="margin: 0;">
-                      <label class="form-label">Teks Tombol (CTA - JA)</label>
-                      <input type="text" class="form-input" v-model="slide.cta_text_ja" placeholder="Example: 詳細を見る" />
                     </div>
                   </div>
 
@@ -221,10 +203,6 @@
                   <span class="lang-tag">🇬🇧 EN</span>
                   <textarea :id="item.key + '_en'" class="form-input" v-model="form.settings_en[item.key]" rows="3" placeholder="English Content"></textarea>
                 </div>
-                <div class="input-lang-wrapper textarea-lang-wrapper" style="margin-top: 10px;">
-                  <span class="lang-tag">🇯🇵 JA</span>
-                  <textarea :id="item.key + '_ja'" class="form-input" v-model="form.settings_ja[item.key]" rows="3" placeholder="Japanese Content"></textarea>
-                </div>
               </template>
 
               <template v-else-if="item.type === 'iframe_embed'">
@@ -262,10 +240,6 @@
                 <div class="input-lang-wrapper" style="margin-top: 10px;">
                   <span class="lang-tag">🇬🇧 EN</span>
                   <input :id="item.key + '_en'" type="text" class="form-input" v-model="form.settings_en[item.key]" placeholder="English Text" />
-                </div>
-                <div class="input-lang-wrapper" style="margin-top: 10px;">
-                  <span class="lang-tag">🇯🇵 JA</span>
-                  <input :id="item.key + '_ja'" type="text" class="form-input" v-model="form.settings_ja[item.key]" placeholder="Japanese Text" />
                 </div>
               </template>
             </div>
@@ -388,19 +362,16 @@ function parseCtaLink(link) {
 // Build initial form data from settings
 const initialSettings = {};
 const initialSettingsEn = {};
-const initialSettingsJa = {};
 for (const [group, items] of Object.entries(props.settings)) {
     for (const item of items) {
         initialSettings[item.key] = item.value || '';
         initialSettingsEn[item.key] = item.value_en || '';
-        initialSettingsJa[item.key] = item.value_ja || '';
     }
 }
 
 const form = useForm({
     settings: initialSettings,
     settings_en: initialSettingsEn,
-    settings_ja: initialSettingsJa,
     images: {},
     slides: props.slides.map(slide => {
         const parsed = parseCtaLink(slide.cta_link);
@@ -408,13 +379,10 @@ const form = useForm({
             id: slide.id,
             title: slide.title || '',
             title_en: slide.title_en || '',
-            title_ja: slide.title_ja || '',
             subtitle: slide.subtitle || '',
             subtitle_en: slide.subtitle_en || '',
-            subtitle_ja: slide.subtitle_ja || '',
             cta_text: slide.cta_text || '',
             cta_text_en: slide.cta_text_en || '',
-            cta_text_ja: slide.cta_text_ja || '',
             cta_link: slide.cta_link || '',
             link_type: parsed.type,
             link_selection: parsed.val,
@@ -489,14 +457,11 @@ function addSlide() {
         id: 'new_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
         title: '',
         title_en: '',
-        title_ja: '',
         subtitle: '',
         subtitle_en: '',
-        subtitle_ja: '',
         image_path: null,
         cta_text: 'Pelajari Selengkapnya',
         cta_text_en: 'Learn More',
-        cta_text_ja: '詳細を見る',
         cta_link: '/',
         link_type: 'static',
         link_selection: '/',

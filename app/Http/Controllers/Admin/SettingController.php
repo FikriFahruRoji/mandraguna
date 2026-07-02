@@ -33,19 +33,14 @@ class SettingController extends Controller
             'settings.*'                => 'nullable|string|max:5000',
             'settings_en'               => 'nullable|array',
             'settings_en.*'             => 'nullable|string|max:5000',
-            'settings_ja'               => 'nullable|array',
-            'settings_ja.*'             => 'nullable|string|max:5000',
             'images.*'                  => 'nullable|image|mimes:jpeg,png,jpg,webp,svg,ico|max:2048',
             'slides'                    => 'nullable|array',
             'slides.*.title'            => 'required|string|max:255',
             'slides.*.title_en'         => 'nullable|string|max:255',
-            'slides.*.title_ja'         => 'nullable|string|max:255',
             'slides.*.subtitle'         => 'nullable|string|max:1000',
             'slides.*.subtitle_en'      => 'nullable|string|max:1000',
-            'slides.*.subtitle_ja'      => 'nullable|string|max:1000',
             'slides.*.cta_text'         => 'nullable|string|max:100',
             'slides.*.cta_text_en'      => 'nullable|string|max:100',
-            'slides.*.cta_text_ja'      => 'nullable|string|max:100',
             'slides.*.cta_link'         => ['nullable', 'string', 'max:500', 'regex:/^(https?:\/\/|\/)[^\s<>\"\']*$/'],
             'slides.*.sort_order'       => 'nullable|integer|min:0|max:9999',
             'slides.*.image'            => 'nullable|image|mimes:jpeg,png,jpg,webp,svg|max:3072',
@@ -56,7 +51,6 @@ class SettingController extends Controller
 
         $data   = $request->input('settings', []);
         $dataEn = $request->input('settings_en', []);
-        $dataJa = $request->input('settings_ja', []);
 
         foreach ($data as $key => $value) {
             // Only update settings that already exist in DB (prevents arbitrary key injection)
@@ -69,13 +63,9 @@ class SettingController extends Controller
                 $sanitizedValueEn = isset($dataEn[$key])
                     ? ($skipStrip ? (string) $dataEn[$key] : strip_tags((string) $dataEn[$key]))
                     : null;
-                $sanitizedValueJa = isset($dataJa[$key])
-                    ? ($skipStrip ? (string) $dataJa[$key] : strip_tags((string) $dataJa[$key]))
-                    : null;
                 $setting->update([
                     'value'    => $sanitizedValue,
                     'value_en' => $sanitizedValueEn,
-                    'value_ja' => $sanitizedValueJa,
                 ]);
             }
         }
@@ -105,13 +95,10 @@ class SettingController extends Controller
             $slideData = [
                 'title'       => strip_tags($item['title'] ?? ''),
                 'title_en'    => isset($item['title_en'])    ? strip_tags($item['title_en'])    : null,
-                'title_ja'    => isset($item['title_ja'])    ? strip_tags($item['title_ja'])    : null,
                 'subtitle'    => isset($item['subtitle'])    ? strip_tags($item['subtitle'])    : '',
                 'subtitle_en' => isset($item['subtitle_en']) ? strip_tags($item['subtitle_en']) : null,
-                'subtitle_ja' => isset($item['subtitle_ja']) ? strip_tags($item['subtitle_ja']) : null,
                 'cta_text'    => isset($item['cta_text'])    ? strip_tags($item['cta_text'])    : '',
                 'cta_text_en' => isset($item['cta_text_en']) ? strip_tags($item['cta_text_en']) : null,
-                'cta_text_ja' => isset($item['cta_text_ja']) ? strip_tags($item['cta_text_ja']) : null,
                 'cta_link'    => isset($item['cta_link'])    ? strip_tags($item['cta_link'])    : '',
                 'sort_order'  => isset($item['sort_order'])  ? (int) $item['sort_order']        : $index,
             ];
@@ -151,4 +138,3 @@ class SettingController extends Controller
         return redirect()->back()->with('success', 'Pengaturan berhasil disimpan.');
     }
 }
-

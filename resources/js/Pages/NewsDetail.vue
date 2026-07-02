@@ -1,15 +1,15 @@
 <template>
-  <Head :title="t(post.title, post.title_en, post.title_ja)" />
+  <Head :title="t(post.title, post.title_en)" />
   <PublicLayout>
     <section class="page-hero" :style="post.image_path ? { backgroundImage: `url(/storage/${post.image_path})` } : {}">
       <div class="container">
         <span class="label-caps" style="color: var(--color-primary-container);">{{ formatDate(post.published_at || post.created_at) }}</span>
-        <h1 class="headline-lg" style="color: white; margin-top: 8px;">{{ t(post.title, post.title_en, post.title_ja) }}</h1>
+        <h1 class="headline-lg" style="color: white; margin-top: 8px;">{{ t(post.title, post.title_en) }}</h1>
       </div>
     </section>
     <section class="section">
       <div class="container article-container">
-        <div class="article-content" v-html="t(post.content, post.content_en, post.content_ja)"></div>
+        <div class="article-content" v-html="t(post.content, post.content_en)"></div>
         <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--color-border);">
           <span style="font-size: 13px; color: var(--color-on-surface-variant);">
             {{ locale === 'en' ? `${post.views} views` : `${post.views} kali dibaca` }}
@@ -19,11 +19,11 @@
     </section>
     <section v-if="relatedPosts.length > 0" class="section" style="background: var(--color-surface-container-low);">
       <div class="container">
-        <h2 class="headline-md text-center" style="margin-bottom: 36px;">{{ t('Artikel Lainnya', 'Other Articles', '他の記事') }}</h2>
+        <h2 class="headline-md text-center" style="margin-bottom: 36px;">{{ t('Artikel Lainnya', 'Other Articles') }}</h2>
         <div class="related-grid">
           <Link v-for="rp in relatedPosts" :key="rp.id" :href="'/news/' + rp.slug" class="card" style="padding: 20px;">
             <span style="font-size: 12px; color: var(--color-on-surface-variant);">{{ formatDate(rp.published_at || rp.created_at) }}</span>
-            <h3 style="font-family: var(--font-headline); font-weight: 600; margin-top: 4px;">{{ t(rp.title, rp.title_en, rp.title_ja) }}</h3>
+            <h3 style="font-family: var(--font-headline); font-weight: 600; margin-top: 4px;">{{ t(rp.title, rp.title_en) }}</h3>
           </Link>
         </div>
       </div>

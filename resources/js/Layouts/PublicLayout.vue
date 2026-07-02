@@ -20,8 +20,7 @@
           <button @click="setLocale('id')" class="lang-btn" :class="{ active: locale === 'id' }" title="Bahasa Indonesia">ID</button>
           <span class="lang-divider">|</span>
           <button @click="setLocale('en')" class="lang-btn" :class="{ active: locale === 'en' }" title="English">EN</button>
-          <span class="lang-divider">|</span>
-          <button @click="setLocale('ja')" class="lang-btn" :class="{ active: locale === 'ja' }" title="日本語">JA</button>
+
         </div>
 
         <button class="mobile-toggle" @click="mobileMenuOpen = !mobileMenuOpen" aria-label="Toggle menu">

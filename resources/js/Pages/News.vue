@@ -1,13 +1,13 @@
 <template>
-  <Head :title="t('Berita & Media', 'News & Media', 'ニュース＆メディア')" />
+  <Head :title="t('Berita & Media', 'News & Media')" />
   <PublicLayout>
     <!-- Hero Section -->
     <section class="page-hero">
       <div class="container text-center" style="max-width: 800px;">
-        <span class="label-caps" style="color: var(--color-primary-fixed-dim); tracking-widest: 0.15em; display: block; margin-bottom: 12px;">{{ t('PERS & PEMBARUAN', 'PRESS & UPDATES', 'プレス＆アップデート') }}</span>
-        <h1 class="headline-xl" style="color: white; margin-top: 8px;">{{ t('Berita & Media', 'News & Media', 'ニュース＆メディア') }}</h1>
+        <span class="label-caps" style="color: var(--color-primary-fixed-dim); tracking-widest: 0.15em; display: block; margin-bottom: 12px;">{{ t('PERS & PEMBARUAN', 'PRESS & UPDATES') }}</span>
+        <h1 class="headline-xl" style="color: white; margin-top: 8px;">{{ t('Berita & Media', 'News & Media') }}</h1>
         <p class="body-lg" style="color: rgba(255,255,255,0.8); margin-top: 20px; line-height: 28px;">
-          {{ t('Berbagi cerita tentang perjalanan kami dalam pertanian berkelanjutan. Temukan pembaruan terkini, rilis pers, dan kisah dari lapangan saat kami mendampingi komunitas petani merevitalisasi lahan mereka secara organik.', 'Sharing stories of our journey in sustainable agriculture. Discover the latest updates, press releases, and stories from the field as we support farming communities in revitalizing their lands organically.', '持続可能な農業における私たちの歩みのストーリーを共有します。農家コミュニティが有機的に土地を活性化するのをサポートする中で、最新のアップデート、プレスリリース、および現場からのストーリーをご覧ください。') }}
+          {{ t('Berbagi cerita tentang perjalanan kami dalam pertanian berkelanjutan. Temukan pembaruan terkini, rilis pers, dan kisah dari lapangan saat kami mendampingi komunitas petani merevitalisasi lahan mereka secara organik.', 'Sharing stories of our journey in sustainable agriculture. Discover the latest updates, press releases, and stories from the field as we support farming communities in revitalizing their lands organically.') }}
         </p>
       </div>
     </section>
@@ -16,7 +16,7 @@
     <section id="press-releases-section" class="section bg-white">
       <div class="container">
         <div style="margin-bottom: 40px; border-bottom: 1px solid var(--color-border); padding-bottom: 16px;">
-          <h2 class="headline-md">{{ t('Rilis Pers Terbaru', 'Latest Press Releases', '最新のプレスリリース') }}</h2>
+          <h2 class="headline-md">{{ t('Rilis Pers Terbaru', 'Latest Press Releases') }}</h2>
         </div>
 
         <div class="press-grid">
@@ -35,10 +35,10 @@
                 <span class="label-caps" style="color: var(--color-secondary); margin-bottom: 8px; font-size: 11px;">
                   {{ formatDate(post.published_at || post.created_at) }}
                 </span>
-                <h3 class="press-card-title">{{ t(post.title, post.title_en, post.title_ja) }}</h3>
-                <p class="body-md press-card-excerpt">{{ t(post.excerpt, post.excerpt_en, post.excerpt_ja) }}</p>
+                <h3 class="press-card-title">{{ t(post.title, post.title_en) }}</h3>
+                <p class="body-md press-card-excerpt">{{ t(post.excerpt, post.excerpt_en) }}</p>
                 <Link :href="`/news/${post.slug}`" class="read-link">
-                  {{ t('Baca Selengkapnya', 'Read More', '続きを読む') }} <span>→</span>
+                  {{ t('Baca Selengkapnya', 'Read More') }} <span>→</span>
                 </Link>
               </div>
             </div>
@@ -49,9 +49,9 @@
               <div class="press-card-image" style="background: var(--color-surface-container); display: flex; align-items: center; justify-content: center; font-size: 48px;">🌱</div>
               <div class="press-card-content">
                 <span class="label-caps" style="color: var(--color-secondary); margin-bottom: 8px; font-size: 11px;">12 Oktober 2024</span>
-                <h3 class="press-card-title">{{ t('Mandraguna Grow: Merevolusi Kesehatan Tanah dengan Asam Amino', 'Mandraguna Grow: Revolutionizing Soil Health with Amino Acids', 'マンドラグナ・グロウ：アミノ酸で土壌の健康に革命を起こす') }}</h3>
-                <p class="body-md press-card-excerpt">{{ t('Formulasi terbaru kami mengintegrasikan profil asam amino canggih yang berasal dari limbah organik.', 'Our latest formulation integrates advanced amino acid profiles derived from organic waste.', '当社の最新の処方は、有機廃棄物由来の高度なアミノ酸プロファイルを統合しています。') }}</p>
-                <Link href="/news" class="read-link">{{ t('Baca Selengkapnya', 'Read More', '続きを読む') }} <span>→</span></Link>
+                <h3 class="press-card-title">{{ t('Mandraguna Grow: Merevolusi Kesehatan Tanah dengan Asam Amino', 'Mandraguna Grow: Revolutionizing Soil Health with Amino Acids') }}</h3>
+                <p class="body-md press-card-excerpt">{{ t('Formulasi terbaru kami mengintegrasikan profil asam amino canggih yang berasal dari limbah organik.', 'Our latest formulation integrates advanced amino acid profiles derived from organic waste.') }}</p>
+                <Link href="/news" class="read-link">{{ t('Baca Selengkapnya', 'Read More') }} <span>→</span></Link>
               </div>
             </div>
           </template>
@@ -95,8 +95,8 @@
       <div class="container">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; border-bottom: 1px solid var(--color-border); padding-bottom: 16px; flex-wrap: wrap; gap: 16px;">
           <div>
-            <h2 class="headline-md">{{ t('Kabar dari Lapangan', 'Field Stories', '現場からの報告') }}</h2>
-            <p class="body-md" style="color: var(--color-secondary); margin-top: 6px;">{{ t('Pertumbuhan kolaboratif bersama mitra tani kami.', 'Collaborative growth alongside our farming partners.', '農業パートナーと共に行う協調的な成長。') }}</p>
+            <h2 class="headline-md">{{ t('Kabar dari Lapangan', 'Field Stories') }}</h2>
+            <p class="body-md" style="color: var(--color-secondary); margin-top: 6px;">{{ t('Pertumbuhan kolaboratif bersama mitra tani kami.', 'Collaborative growth alongside our farming partners.') }}</p>
           </div>
         </div>
 
@@ -113,12 +113,12 @@
                 <span class="label-caps" style="color: var(--color-secondary); font-size: 11px;">
                   {{ formatDate(story.published_at || story.created_at) }}
                 </span>
-                <h3 class="headline-md" style="font-size: 20px; margin-top: 8px; margin-bottom: 8px;">{{ t(story.title, story.title_en, story.title_ja) }}</h3>
+                <h3 class="headline-md" style="font-size: 20px; margin-top: 8px; margin-bottom: 8px;">{{ t(story.title, story.title_en) }}</h3>
                 <p class="body-md" style="color: var(--color-secondary); line-height: 24px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
-                  {{ t(story.excerpt || story.content, story.excerpt_en || story.content_en, story.excerpt_ja || story.content_ja) }}
+                  {{ t(story.excerpt || story.content, story.excerpt_en || story.content_en) }}
                 </p>
                 <Link :href="`/field-stories/${story.slug}`" class="read-link" style="margin-top: 16px;">
-                  {{ t('Baca Selengkapnya', 'Read More', '続きを読む') }} <span>→</span>
+                  {{ t('Baca Selengkapnya', 'Read More') }} <span>→</span>
                 </Link>
               </div>
             </div>
@@ -129,18 +129,18 @@
             <div class="field-card card bg-white">
               <div class="field-image" style="background: var(--color-surface-container); display: flex; align-items: center; justify-content: center; font-size: 48px;">🏡</div>
               <div class="field-card-body">
-                <h3 class="headline-md" style="font-size: 20px; margin-top: 8px; margin-bottom: 8px;">{{ t('Inovasi Rumah Kaca di Subang', 'Greenhouse Innovation in Subang', 'スバンにおける温室イノベーション') }}</h3>
+                <h3 class="headline-md" style="font-size: 20px; margin-top: 8px; margin-bottom: 8px;">{{ t('Inovasi Rumah Kaca di Subang', 'Greenhouse Innovation in Subang') }}</h3>
                 <p class="body-md" style="color: var(--color-secondary); line-height: 24px;">
-                  {{ t('Bekerja sama erat dengan para pemimpin pertanian setempat untuk menerapkan protokol pemberian nutrisi organik di lingkungan terkendali.', 'Working closely with local agricultural leaders to implement organic nutrient protocols in controlled environments.', '管理された環境下で有機栄養供給プロトコルを適用するため、現地の農業指導者と密接に連携しています。') }}
+                  {{ t('Bekerja sama erat dengan para pemimpin pertanian setempat untuk menerapkan protokol pemberian nutrisi organik di lingkungan terkendali.', 'Working closely with local agricultural leaders to implement organic nutrient protocols in controlled environments.') }}
                 </p>
               </div>
             </div>
             <div class="field-card card bg-white">
               <div class="field-image" style="background: var(--color-surface-container); display: flex; align-items: center; justify-content: center; font-size: 48px;">🚜</div>
               <div class="field-card-body">
-                <h3 class="headline-md" style="font-size: 20px; margin-top: 8px; margin-bottom: 8px;">{{ t('Pamanenan Mekanis & Sinergi Organik', 'Mechanical Harvesting & Organic Synergy', '機械的収穫と有機的相乗効果') }}</h3>
+                <h3 class="headline-md" style="font-size: 20px; margin-top: 8px; margin-bottom: 8px;">{{ t('Pamanenan Mekanis & Sinergi Organik', 'Mechanical Harvesting & Organic Synergy') }}</h3>
                 <p class="body-md" style="color: var(--color-secondary); line-height: 24px;">
-                  {{ t('Mengintegrasikan operasi mekanis skala besar dengan aplikasi pupuk organik yang presisi.', 'Integrating large-scale mechanical operations with precise organic fertilizer application.', '大規模な機械化事業と精密な有機肥料 of 散布を統合。') }}
+                  {{ t('Mengintegrasikan operasi mekanis skala besar dengan aplikasi pupuk organik yang presisi.', 'Integrating large-scale mechanical operations with precise organic fertilizer application.') }}
                 </p>
               </div>
             </div>

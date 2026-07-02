@@ -65,7 +65,7 @@
       <div class="cta-actions">
         <Link href="/" class="btn btn-gold btn-large">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          {{ t('Kembali ke Beranda', 'Back to Homepage', 'ホームに戻る') }}
+          {{ t('Kembali ke Beranda', 'Back to Homepage') }}
         </Link>
       </div>
     </main>
@@ -90,38 +90,32 @@ const { locale, setLocale, t } = useLanguage();
 
 const pageTitle = computed(() => {
     if (props.status === 429) {
-        return t('Terlalu Banyak Permintaan', 'Too Many Requests', 'リクエストが多すぎます');
+        return t('Terlalu Banyak Permintaan', 'Too Many Requests');
     }
-    return t('Halaman Tidak Ditemukan', 'Page Not Found', 'ページが見つかりません');
+    return t('Halaman Tidak Ditemukan', 'Page Not Found');
 });
 
 const errorTitle = computed(() => {
     if (props.status === 429) {
-        return t('Terlalu Banyak Percobaan Masuk', 'Too Many Login Attempts', 'ログインの試行回数が多すぎます');
+        return t('Terlalu Banyak Percobaan Masuk', 'Too Many Login Attempts');
     }
-    return t('Halaman Tidak Ditemukan', 'Page Not Found', 'ページが見つかりません');
+    return t('Halaman Tidak Ditemukan', 'Page Not Found');
 });
 
 const errorDescription = computed(() => {
     if (props.status === 429) {
         return t(
             'Untuk menjaga keamanan sistem, silakan tunggu beberapa menit sebelum mencoba masuk kembali.',
-            'To maintain system security, please wait a few minutes before trying to login again.',
-            'システムセキュリティを維持するため、再試行する前に数分間お待ちください。'
-        );
+            'To maintain system security, please wait a few minutes before trying to login again.');
     }
     return t(
         'Maaf, halaman yang Anda cari tidak tersedia, dihapus, atau alamat URL yang dimasukkan salah.',
-        'Sorry, the page you are looking for is not available, has been removed, or the URL entered is incorrect.',
-        '申し訳ありませんが、お探しのページは利用できないか、削除されたか、入力されたURLが正しくありません。'
-    );
+        'Sorry, the page you are looking for is not available, has been removed, or the URL entered is incorrect.');
 });
 
 function toggleLang() {
     if (locale.value === 'id') {
         setLocale('en');
-    } else if (locale.value === 'en') {
-        setLocale('ja');
     } else {
         setLocale('id');
     }

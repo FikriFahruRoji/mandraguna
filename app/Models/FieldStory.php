@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class FieldStory extends Model
 {
     protected $fillable = [
-        'title', 'title_en', 'title_ja', 'slug', 'excerpt', 'excerpt_en', 'excerpt_ja', 'content', 'content_en', 'content_ja',
+        'title', 'title_en', 'slug', 'excerpt', 'excerpt_en', 'content', 'content_en',
         'image_path', 'is_published', 'published_at', 'views',
     ];
 

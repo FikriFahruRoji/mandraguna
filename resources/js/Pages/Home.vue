@@ -1,5 +1,5 @@
 <template>
-  <Head :title="t('Beranda', 'Home', 'ホーム')" />
+  <Head :title="t('Beranda', 'Home')" />
   <PublicLayout>
     <!-- Hero Slider Section (Widyakarsa & Stitch Style) -->
     <section class="hero-slider">
@@ -7,11 +7,11 @@
         <div class="slide-bg" :style="slide.image_path ? { backgroundImage: `url(/storage/${slide.image_path})` } : {}"></div>
         <div class="container hero-container">
           <div class="hero-content">
-            <h1 class="headline-xl">{{ t(slide.title, slide.title_en, slide.title_ja) }}</h1>
-            <p class="body-lg hero-subtitle">{{ t(slide.subtitle, slide.subtitle_en, slide.subtitle_ja) }}</p>
+            <h1 class="headline-xl">{{ t(slide.title, slide.title_en) }}</h1>
+            <p class="body-lg hero-subtitle">{{ t(slide.subtitle, slide.subtitle_en) }}</p>
             <div class="hero-actions">
               <Link v-if="slide.cta_text && slide.cta_link" :href="slide.cta_link" class="btn btn-gold">
-                {{ t(slide.cta_text, slide.cta_text_en, slide.cta_text_ja) }}
+                {{ t(slide.cta_text, slide.cta_text_en) }}
                 <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </Link>
             </div>
@@ -37,19 +37,19 @@
     <section class="section bg-white">
       <div class="container about-grid">
         <div class="about-content">
-          <span class="label-caps" style="color: var(--color-primary); margin-bottom: 12px; display: block;">{{ t(ha.about_label, ha.about_label_en, ha.about_label_ja) || t('SIAPA KAMI', 'WHO WE ARE', '私たちについて') }}</span>
-          <h2 class="headline-lg">{{ t(ha.about_title, ha.about_title_en, ha.about_title_ja) || t('Mewujudkan Kemakmuran Melalui Kesehatan Tanah', 'Realizing Prosperity Through Soil Health', '土壌の健康を通じた繁栄の実現') }}</h2>
+          <span class="label-caps" style="color: var(--color-primary); margin-bottom: 12px; display: block;">{{ t(ha.about_label, ha.about_label_en) || t('SIAPA KAMI', 'WHO WE ARE') }}</span>
+          <h2 class="headline-lg">{{ t(ha.about_title, ha.about_title_en) || t('Mewujudkan Kemakmuran Melalui Kesehatan Tanah', 'Realizing Prosperity Through Soil Health') }}</h2>
           <div class="about-text-content font-body-md" style="margin-top: 24px; color: var(--color-on-surface-variant); display: flex; flex-direction: column; gap: 16px;">
             <p v-for="(pText, pIdx) in aboutParagraphs" :key="pIdx">{{ pText }}</p>
           </div>
           <div class="about-stats-row" style="margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; border-top: 1px solid var(--color-border); padding-top: 32px;">
             <div>
               <span class="headline-md" style="display: block; color: var(--color-earth-black);">{{ ha.about_stat1_value || '10+' }}</span>
-              <span class="label-caps" style="color: var(--color-secondary); font-size: 12px;">{{ t(ha.about_stat1_label, ha.about_stat1_label_en, ha.about_stat1_label_ja) || t('Tahun Inovasi', 'Years of Innovation', '革新の歳月') }}</span>
+              <span class="label-caps" style="color: var(--color-secondary); font-size: 12px;">{{ t(ha.about_stat1_label, ha.about_stat1_label_en) || t('Tahun Inovasi', 'Years of Innovation') }}</span>
             </div>
             <div>
               <span class="headline-md" style="display: block; color: var(--color-earth-black);">{{ ha.about_stat2_value || '100%' }}</span>
-              <span class="label-caps" style="color: var(--color-secondary); font-size: 12px;">{{ t(ha.about_stat2_label, ha.about_stat2_label_en, ha.about_stat2_label_ja) || t('Bahan Organik', 'Organic Matter', '有機物') }}</span>
+              <span class="label-caps" style="color: var(--color-secondary); font-size: 12px;">{{ t(ha.about_stat2_label, ha.about_stat2_label_en) || t('Bahan Organik', 'Organic Matter') }}</span>
             </div>
           </div>
         </div>
@@ -60,7 +60,7 @@
             <div v-else style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 64px;">🌾</div>
           </div>
           <div class="about-quote-tag" style="position: absolute; bottom: -20px; left: -20px; background: var(--color-earth-black); color: white; padding: 24px; max-width: 300px; border-radius: var(--rounded-md); box-shadow: var(--shadow-elevated);">
-            <p style="font-family: var(--font-body); font-style: italic; font-size: 14px; line-height: 20px; opacity: 0.9;">"{{ t(ha.about_quote, ha.about_quote_en, ha.about_quote_ja) || t('Mandraguna untuk Indonesia, Mandraguna untuk Warisan Indonesia.', 'Mandraguna for Indonesia, Mandraguna for Indonesian Heritage.', 'インドネシアのためのマンドラグナ、インドネシアの遺産のためのマンドラグナ。') }}"</p>
+            <p style="font-family: var(--font-body); font-style: italic; font-size: 14px; line-height: 20px; opacity: 0.9;">"{{ t(ha.about_quote, ha.about_quote_en) || t('Mandraguna untuk Indonesia, Mandraguna untuk Warisan Indonesia.', 'Mandraguna for Indonesia, Mandraguna for Indonesian Heritage.') }}"</p>
           </div>
         </div>
       </div>
@@ -70,12 +70,12 @@
     <section v-if="youtubeEmbedUrl" class="section" style="background: var(--color-earth-black); padding: 60px 0;">
       <div class="container">
         <div style="text-align: center; margin-bottom: 36px;">
-          <h2 class="headline-lg" style="color: white;">{{ t('Kenali Mandraguna Lebih Dekat', 'Get Closer to Mandraguna', 'マンドラグナをより深く知る') }}</h2>
+          <h2 class="headline-lg" style="color: white;">{{ t('Kenali Mandraguna Lebih Dekat', 'Get Closer to Mandraguna') }}</h2>
         </div>
         <div class="video-wrapper">
           <iframe
             :src="youtubeEmbedUrl"
-            :title="t('Video Profil Mandraguna', 'Mandraguna Profile Video', 'マンドラグナ紹介動画')"
+            :title="t('Video Profil Mandraguna', 'Mandraguna Profile Video')"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
@@ -89,17 +89,17 @@
     <section class="section" style="background: var(--color-surface-container-low);">
       <div class="container">
         <div style="text-align: center; margin-bottom: 60px;">
-          <span class="label-caps" style="color: var(--color-primary); display: block; margin-bottom: 8px;">{{ t(ht.transform_label, ht.transform_label_en, ht.transform_label_ja) || t('TRANSFORMASI', 'TRANSFORMATION', '変革') }}</span>
-          <h2 class="headline-lg">{{ t(ht.transform_title, ht.transform_title_en, ht.transform_title_ja) || t('Sains untuk Hasil Panen yang Lebih Baik', 'Science for Better Yields', 'より良い収穫のための科学') }}</h2>
+          <span class="label-caps" style="color: var(--color-primary); display: block; margin-bottom: 8px;">{{ t(ht.transform_label, ht.transform_label_en) || t('TRANSFORMASI', 'TRANSFORMATION') }}</span>
+          <h2 class="headline-lg">{{ t(ht.transform_title, ht.transform_title_en) || t('Sains untuk Hasil Panen yang Lebih Baik', 'Science for Better Yields') }}</h2>
         </div>
 
         <div class="bento-grid">
           <!-- Problem Card -->
           <div class="bento-card bg-white" style="display: flex; flex-direction: column; min-height: 500px;">
             <div style="margin-bottom: 16px;">
-              <h3 class="headline-md text-2xl" style="color: var(--color-on-surface); font-weight: 700; margin-bottom: 12px;">{{ t(ht.transform_card1_title, ht.transform_card1_title_en, ht.transform_card1_title_ja) || t('Tantangan Bahan Kimia', 'The Chemical Challenge', '化学物質の課題') }}</h3>
+              <h3 class="headline-md text-2xl" style="color: var(--color-on-surface); font-weight: 700; margin-bottom: 12px;">{{ t(ht.transform_card1_title, ht.transform_card1_title_en) || t('Tantangan Bahan Kimia', 'The Chemical Challenge') }}</h3>
               <p class="body-md" style="color: var(--color-secondary); line-height: 24px;">
-                {{ t(ht.transform_card1_desc, ht.transform_card1_desc_en, ht.transform_card1_desc_ja) || t('Pupuk kimia tradisional menyebabkan degradasi tanah, menurunkan kesuburan jangka panjang, dan memicu toksisitas lingkungan. Kami hadir memberikan solusi alternatif.', 'Traditional chemical fertilizers cause soil degradation, decrease long-term fertility, and trigger environmental toxicity. We are here to provide an alternative solution.', '従来の化学肥料は土壌の劣化を引き起こし、長期的な肥沃度を低下させ、環境毒性を誘発します。私たちは代替ソリューションを提供します。') }}
+                {{ t(ht.transform_card1_desc, ht.transform_card1_desc_en) || t('Pupuk kimia tradisional menyebabkan degradasi tanah, menurunkan kesuburan jangka panjang, dan memicu toksisitas lingkungan. Kami hadir memberikan solusi alternatif.', 'Traditional chemical fertilizers cause soil degradation, decrease long-term fertility, and trigger environmental toxicity. We are here to provide an alternative solution.') }}
               </p>
             </div>
             
@@ -112,9 +112,9 @@
           <!-- Amino Power Card -->
           <div class="bento-card bg-black text-white" style="display: flex; flex-direction: column; min-height: 500px; background: var(--color-earth-black); border-color: var(--color-earth-black);">
             <div style="margin-bottom: 16px;">
-              <h3 class="headline-md text-2xl" style="color: var(--color-primary-container); font-weight: 700; margin-bottom: 12px;">{{ t(ht.transform_card2_title, ht.transform_card2_title_en, ht.transform_card2_title_ja) || t('Kekuatan Asam Amino', 'Amino Power', 'アミノ酸の力') }}</h3>
+              <h3 class="headline-md text-2xl" style="color: var(--color-primary-container); font-weight: 700; margin-bottom: 12px;">{{ t(ht.transform_card2_title, ht.transform_card2_title_en) || t('Kekuatan Asam Amino', 'Amino Power') }}</h3>
               <p class="body-md" style="color: rgba(255,255,255,0.8); line-height: 24px;">
-                {{ t(ht.transform_card2_desc, ht.transform_card2_desc_en, ht.transform_card2_desc_ja) || t('Kandungan organik tinggi yang kaya akan nutrisi esensial untuk penyerapan cepat oleh tanaman.', 'High organic content rich in essential nutrients for rapid absorption.', '植物への迅速な吸収に不可欠な栄養素が豊富な高有機含有量。') }}
+                {{ t(ht.transform_card2_desc, ht.transform_card2_desc_en) || t('Kandungan organik tinggi yang kaya akan nutrisi esensial untuk penyerapan cepat oleh tanaman.', 'High organic content rich in essential nutrients for rapid absorption.') }}
               </p>
             </div>
             <div style="margin-top: auto; border-radius: var(--rounded-md); overflow: hidden; background: #222; border: 1px solid rgba(255,255,255,0.1);">
@@ -126,9 +126,9 @@
           <!-- Pure Nature Card -->
           <div class="bento-card bg-white" style="display: flex; flex-direction: column; min-height: 500px;">
             <div style="margin-bottom: 16px;">
-              <h3 class="headline-md text-2xl" style="color: var(--color-on-surface); font-weight: 700; margin-bottom: 12px;">{{ t(ht.transform_card3_title, ht.transform_card3_title_en, ht.transform_card3_title_ja) || t('Kemurnian Alam', 'Pure Nature', '自然の純粋さ') }}</h3>
+              <h3 class="headline-md text-2xl" style="color: var(--color-on-surface); font-weight: 700; margin-bottom: 12px;">{{ t(ht.transform_card3_title, ht.transform_card3_title_en) || t('Kemurnian Alam', 'Pure Nature') }}</h3>
               <p class="body-md" style="color: var(--color-secondary); line-height: 24px;">
-                {{ t(ht.transform_card3_desc, ht.transform_card3_desc_en, ht.transform_card3_desc_ja) || t('Bebas residu beracun. Aman untuk petani, aman untuk ekosistem, sangat penting untuk tanaman.', 'Zero toxic residues. Safe for farmers, safe for the ecosystem, vital for crops.', '毒性残留物ゼロ。農家にとって安全で、生態系にとって安全であり、作物にとって極めて重要です。') }}
+                {{ t(ht.transform_card3_desc, ht.transform_card3_desc_en) || t('Bebas residu beracun. Aman untuk petani, aman untuk ekosistem, sangat penting untuk tanaman.', 'Zero toxic residues. Safe for farmers, safe for the ecosystem, vital for crops.') }}
               </p>
             </div>
 
@@ -141,11 +141,11 @@
               <ul style="display: flex; flex-direction: column; gap: 8px; list-style: none;">
                 <li class="label-caps" style="font-size: 11px; display: flex; align-items: center; gap: 8px; color: var(--color-on-surface); font-weight: 700;">
                   <span style="width: 6px; height: 6px; background: var(--color-primary-container); border-radius: 50%;"></span>
-                  {{ t('100% DAUR ULANG', '100% RECYCLED', '100% リサイクル') }}
+                  {{ t('100% DAUR ULANG', '100% RECYCLED') }}
                 </li>
                 <li class="label-caps" style="font-size: 11px; display: flex; align-items: center; gap: 8px; color: var(--color-on-surface); font-weight: 700;">
                   <span style="width: 6px; height: 6px; background: var(--color-primary-container); border-radius: 50%;"></span>
-                  {{ t('BERBASIS BIOLOGIS', 'BIOLOGICAL BASE', 'バイオベース') }}
+                  {{ t('BERBASIS BIOLOGIS', 'BIOLOGICAL BASE') }}
                 </li>
               </ul>
             </div>
@@ -159,10 +159,10 @@
       <div class="container">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; flex-wrap: wrap; gap: 24px;">
           <div>
-            <span class="label-caps" style="color: var(--color-primary); display: block; margin-bottom: 8px;">{{ t(hp.product_section_label, hp.product_section_label_en, hp.product_section_label_ja) || t('PILIHAN PRODUK KAMI', 'OUR PRODUCT SELECTION', '製品セレクション') }}</span>
-            <h2 class="headline-lg">{{ t(hp.product_section_title, hp.product_section_title_en, hp.product_section_title_ja) || t('Keunggulan Mandraguna', 'The Mandraguna Advantage', 'マンドラグナの強み') }}</h2>
+            <span class="label-caps" style="color: var(--color-primary); display: block; margin-bottom: 8px;">{{ t(hp.product_section_label, hp.product_section_label_en) || t('PILIHAN PRODUK KAMI', 'OUR PRODUCT SELECTION') }}</span>
+            <h2 class="headline-lg">{{ t(hp.product_section_title, hp.product_section_title_en) || t('Keunggulan Mandraguna', 'The Mandraguna Advantage') }}</h2>
           </div>
-          <Link href="/products" class="btn-link" style="font-family: var(--font-label); font-weight: 600; text-transform: uppercase; border-bottom: 2px solid var(--color-earth-black); padding-bottom: 4px;">{{ t('Lihat Katalog', 'View Catalog', 'カタログを見る') }}</Link>
+          <Link href="/products" class="btn-link" style="font-family: var(--font-label); font-weight: 600; text-transform: uppercase; border-bottom: 2px solid var(--color-earth-black); padding-bottom: 4px;">{{ t('Lihat Katalog', 'View Catalog') }}</Link>
         </div>
 
         <div class="product-preview-grid">
@@ -174,22 +174,22 @@
           </div>
 
           <div class="product-preview-info">
-            <h3 class="headline-md" style="margin-bottom: 16px;">{{ t(hp.product_featured_name, hp.product_featured_name_en, hp.product_featured_name_ja) || 'Mandraguna Grow™' }}</h3>
+            <h3 class="headline-md" style="margin-bottom: 16px;">{{ t(hp.product_featured_name, hp.product_featured_name_en) || 'Mandraguna Grow™' }}</h3>
             <p class="body-md" style="color: var(--color-secondary); line-height: 26px; margin-bottom: 32px;">
-              {{ t(hp.product_featured_desc, hp.product_featured_desc_en, hp.product_featured_desc_ja) || t('Formula asam amino unggulan kami yang dirancang khusus untuk berbagai komoditas pertanian di Indonesia.', 'Our flagship amino acid formula specifically designed for various agricultural commodities in Indonesia.', 'インドネシアのさまざまな農産物向けに特別に設計された、アミノ酸の主力処方。') }}
+              {{ t(hp.product_featured_desc, hp.product_featured_desc_en) || t('Formula asam amino unggulan kami yang dirancang khusus untuk berbagai komoditas pertanian di Indonesia.', 'Our flagship amino acid formula specifically designed for various agricultural commodities in Indonesia.') }}
             </p>
             <div class="product-spec-table">
               <div class="spec-row">
-                <span class="label-caps">{{ t(hp.product_spec1_label, hp.product_spec1_label_en, hp.product_spec1_label_ja) || t('Bahan Organik', 'Organic Matter', '有機物') }}</span>
-                <span class="spec-value">{{ t(hp.product_spec1_value, hp.product_spec1_value_en, hp.product_spec1_value_ja) || '85%+' }}</span>
+                <span class="label-caps">{{ t(hp.product_spec1_label, hp.product_spec1_label_en) || t('Bahan Organik', 'Organic Matter') }}</span>
+                <span class="spec-value">{{ t(hp.product_spec1_value, hp.product_spec1_value_en) || '85%+' }}</span>
               </div>
               <div class="spec-row">
-                <span class="label-caps">{{ t(hp.product_spec2_label, hp.product_spec2_label_en, hp.product_spec2_label_ja) || t('Profil Asam Amino', 'Amino Acid Profile', 'アミノ酸プロファイル') }}</span>
-                <span class="spec-value">{{ t(hp.product_spec2_value, hp.product_spec2_value_en, hp.product_spec2_value_ja) || t('Spektrum Penuh', 'Full Spectrum', 'フルスペクトラム') }}</span>
+                <span class="label-caps">{{ t(hp.product_spec2_label, hp.product_spec2_label_en) || t('Profil Asam Amino', 'Amino Acid Profile') }}</span>
+                <span class="spec-value">{{ t(hp.product_spec2_value, hp.product_spec2_value_en) || t('Spektrum Penuh', 'Full Spectrum') }}</span>
               </div>
               <div class="spec-row">
-                <span class="label-caps">{{ t(hp.product_spec3_label, hp.product_spec3_label_en, hp.product_spec3_label_ja) || t('Kelarutan dalam Air', 'Water Solubility', '水溶性') }}</span>
-                <span class="spec-value">{{ t(hp.product_spec3_value, hp.product_spec3_value_en, hp.product_spec3_value_ja) || '100%' }}</span>
+                <span class="label-caps">{{ t(hp.product_spec3_label, hp.product_spec3_label_en) || t('Kelarutan dalam Air', 'Water Solubility') }}</span>
+                <span class="spec-value">{{ t(hp.product_spec3_value, hp.product_spec3_value_en) || '100%' }}</span>
               </div>
             </div>
           </div>
@@ -201,9 +201,9 @@
     <section class="section">
       <div class="container tech-grid">
         <div class="tech-info">
-          <h2 class="headline-lg" style="color: var(--color-earth-black); margin-bottom: 20px;">{{ t(htch.tech_title, htch.tech_title_en, htch.tech_title_ja) || t('Hasil Terbukti', 'Proven Results', '実証された実績') }}</h2>
+          <h2 class="headline-lg" style="color: var(--color-earth-black); margin-bottom: 20px;">{{ t(htch.tech_title, htch.tech_title_en) || t('Hasil Terbukti', 'Proven Results') }}</h2>
           <p class="body-md" style="color: var(--color-secondary); line-height: 26px; margin-bottom: 40px; max-width: 440px;">
-            {{ t(htch.tech_desc, htch.tech_desc_en, htch.tech_desc_ja) || t('Analisis teknis kami menunjukkan kualitas dan dampak yang konsisten dari pupuk Mandraguna pada berbagai jenis tanah.', 'Our technical analysis shows consistent quality and impact of Mandraguna fertilizer on various soil types.', '私たちの技術分析は、さまざまな土壌タイプに対するマンドラグナ肥料の一貫した品質と影響を示しています。') }}
+            {{ t(htch.tech_desc, htch.tech_desc_en) || t('Analisis teknis kami menunjukkan kualitas dan dampak yang konsisten dari pupuk Mandraguna pada berbagai jenis tanah.', 'Our technical analysis shows consistent quality and impact of Mandraguna fertilizer on various soil types.') }}
           </p>
           <div class="tech-graphic-placeholder" style="border: 1px solid rgba(218,165,32,0.2); border-radius: var(--rounded-lg); aspect-ratio: 1.5; overflow: hidden; background: #111; display: flex; align-items: center; justify-content: center; font-size: 48px;">
             <img v-if="htch.tech_image" :src="'/storage/' + htch.tech_image" alt="" style="width: 100%; height: 100%; object-fit: cover;" />
@@ -212,31 +212,31 @@
         </div>
 
         <div class="tech-table-container bg-white text-black">
-          <h4 class="label-caps" style="color: var(--color-primary); margin-bottom: 24px; padding: 0 8px;">{{ t('SPESIFIKASI TEKNIS', 'TECHNICAL SPECIFICATIONS', '技術仕様') }}</h4>
+          <h4 class="label-caps" style="color: var(--color-primary); margin-bottom: 24px; padding: 0 8px;">{{ t('SPESIFIKASI TEKNIS', 'TECHNICAL SPECIFICATIONS') }}</h4>
           <div class="tech-table">
             <div class="tech-row header">
-              <span>{{ t('PARAMETER', 'PARAMETER', 'パラメーター') }}</span>
-              <span>{{ t('NILAI', 'VALUE', '数値') }}</span>
+              <span>{{ t('PARAMETER', 'PARAMETER') }}</span>
+              <span>{{ t('NILAI', 'VALUE') }}</span>
             </div>
             <div v-if="htch.tech_spec1_label" class="tech-row">
-              <span>{{ t(htch.tech_spec1_label, htch.tech_spec1_label_en, htch.tech_spec1_label_ja) }}</span>
-              <span class="highlight">{{ t(htch.tech_spec1_val, htch.tech_spec1_val_en, htch.tech_spec1_val_ja) }}</span>
+              <span>{{ t(htch.tech_spec1_label, htch.tech_spec1_label_en) }}</span>
+              <span class="highlight">{{ t(htch.tech_spec1_val, htch.tech_spec1_val_en) }}</span>
             </div>
             <div v-if="htch.tech_spec2_label" class="tech-row">
-              <span>{{ t(htch.tech_spec2_label, htch.tech_spec2_label_en, htch.tech_spec2_label_ja) }}</span>
-              <span class="highlight">{{ t(htch.tech_spec2_val, htch.tech_spec2_val_en, htch.tech_spec2_val_ja) }}</span>
+              <span>{{ t(htch.tech_spec2_label, htch.tech_spec2_label_en) }}</span>
+              <span class="highlight">{{ t(htch.tech_spec2_val, htch.tech_spec2_val_en) }}</span>
             </div>
             <div v-if="htch.tech_spec3_label" class="tech-row">
-              <span>{{ t(htch.tech_spec3_label, htch.tech_spec3_label_en, htch.tech_spec3_label_ja) }}</span>
-              <span class="highlight">{{ t(htch.tech_spec3_val, htch.tech_spec3_val_en, htch.tech_spec3_val_ja) }}</span>
+              <span>{{ t(htch.tech_spec3_label, htch.tech_spec3_label_en) }}</span>
+              <span class="highlight">{{ t(htch.tech_spec3_val, htch.tech_spec3_val_en) }}</span>
             </div>
             <div v-if="htch.tech_spec4_label" class="tech-row">
-              <span>{{ t(htch.tech_spec4_label, htch.tech_spec4_label_en, htch.tech_spec4_label_ja) }}</span>
-              <span class="highlight">{{ t(htch.tech_spec4_val, htch.tech_spec4_val_en, htch.tech_spec4_val_ja) }}</span>
+              <span>{{ t(htch.tech_spec4_label, htch.tech_spec4_label_en) }}</span>
+              <span class="highlight">{{ t(htch.tech_spec4_val, htch.tech_spec4_val_en) }}</span>
             </div>
             <div v-if="htch.tech_spec5_label" class="tech-row">
-              <span>{{ t(htch.tech_spec5_label, htch.tech_spec5_label_en, htch.tech_spec5_label_ja) }}</span>
-              <span class="highlight">{{ t(htch.tech_spec5_val, htch.tech_spec5_val_en, htch.tech_spec5_val_ja) }}</span>
+              <span>{{ t(htch.tech_spec5_label, htch.tech_spec5_label_en) }}</span>
+              <span class="highlight">{{ t(htch.tech_spec5_val, htch.tech_spec5_val_en) }}</span>
             </div>
           </div>
         </div>
@@ -248,18 +248,18 @@
       <div class="container">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; flex-wrap: wrap; gap: 24px;">
           <div>
-            <span class="label-caps" style="color: var(--color-primary); display: block; margin-bottom: 8px;">{{ t('KABAR TERKINI', 'LATEST NEWS', '最新ニュース') }}</span>
-            <h2 class="headline-lg">{{ t('Berita & Kegiatan', 'News & Activities', 'ニュース＆活動') }}</h2>
+            <span class="label-caps" style="color: var(--color-primary); display: block; margin-bottom: 8px;">{{ t('KABAR TERKINI', 'LATEST NEWS') }}</span>
+            <h2 class="headline-lg">{{ t('Berita & Kegiatan', 'News & Activities') }}</h2>
           </div>
-          <Link href="/news" class="btn-link" style="font-family: var(--font-label); font-weight: 600; text-transform: uppercase; border-bottom: 2px solid var(--color-earth-black); padding-bottom: 4px;">{{ t('Lihat Semua Berita & Kegiatan', 'View All News & Activities', 'すべてのニュース＆活動を見る') }}</Link>
+          <Link href="/news" class="btn-link" style="font-family: var(--font-label); font-weight: 600; text-transform: uppercase; border-bottom: 2px solid var(--color-earth-black); padding-bottom: 4px;">{{ t('Lihat Semua Berita & Kegiatan', 'View All News & Activities') }}</Link>
         </div>
 
         <div class="home-news-activities-grid">
           <!-- Kolom 1: Berita Terbaru -->
           <div class="home-news-column">
             <h3 class="headline-md" style="font-size: 22px; margin-bottom: 24px; border-bottom: 2px solid var(--color-primary-container); padding-bottom: 12px; display: flex; justify-content: space-between; align-items: center; color: var(--color-earth-black);">
-              <span>{{ t('Berita Terbaru', 'Latest News', '最新ニュース') }}</span>
-              <span class="label-caps" style="font-size: 11px; color: var(--color-secondary); letter-spacing: 0.05em;">{{ t('Rilis Pers', 'Press Release', 'プレスリリース') }}</span>
+              <span>{{ t('Berita Terbaru', 'Latest News') }}</span>
+              <span class="label-caps" style="font-size: 11px; color: var(--color-secondary); letter-spacing: 0.05em;">{{ t('Rilis Pers', 'Press Release') }}</span>
             </h3>
             
             <div class="home-cards-list">
@@ -273,15 +273,15 @@
                       {{ formatDate(post.published_at || post.created_at) }}
                     </span>
                     <h4 class="card-title">
-                      <Link :href="`/news/${post.slug}`">{{ t(post.title, post.title_en, post.title_ja) }}</Link>
+                      <Link :href="`/news/${post.slug}`">{{ t(post.title, post.title_en) }}</Link>
                     </h4>
-                    <p class="card-excerpt">{{ t(post.excerpt, post.excerpt_en, post.excerpt_ja) }}</p>
-                    <Link :href="`/news/${post.slug}`" class="read-link-sm">{{ t('Baca Selengkapnya →', 'Read More →', '続きを読む →') }}</Link>
+                    <p class="card-excerpt">{{ t(post.excerpt, post.excerpt_en) }}</p>
+                    <Link :href="`/news/${post.slug}`" class="read-link-sm">{{ t('Baca Selengkapnya →', 'Read More →') }}</Link>
                   </div>
                 </div>
               </template>
               <template v-else>
-                <div class="empty-state">{{ t('Belum ada berita terbaru.', 'No latest news available.', '最新ニュースはありません。') }}</div>
+                <div class="empty-state">{{ t('Belum ada berita terbaru.', 'No latest news available.') }}</div>
               </template>
             </div>
           </div>
@@ -289,8 +289,8 @@
           <!-- Kolom 2: Kegiatan Terbaru -->
           <div class="home-news-column">
             <h3 class="headline-md" style="font-size: 22px; margin-bottom: 24px; border-bottom: 2px solid var(--color-primary-container); padding-bottom: 12px; display: flex; justify-content: space-between; align-items: center; color: var(--color-earth-black);">
-              <span>{{ t('Kegiatan Terbaru', 'Latest Activities', '最新の活動') }}</span>
-              <span class="label-caps" style="font-size: 11px; color: var(--color-secondary); letter-spacing: 0.05em;">{{ t('Kabar Lapangan', 'Field Stories', '現場からの報告') }}</span>
+              <span>{{ t('Kegiatan Terbaru', 'Latest Activities') }}</span>
+              <span class="label-caps" style="font-size: 11px; color: var(--color-secondary); letter-spacing: 0.05em;">{{ t('Kabar Lapangan', 'Field Stories') }}</span>
             </h3>
             
             <div class="home-cards-list">
@@ -304,15 +304,15 @@
                       {{ formatDate(story.published_at || story.created_at) }}
                     </span>
                     <h4 class="card-title">
-                      <Link :href="`/field-stories/${story.slug}`">{{ t(story.title, story.title_en, story.title_ja) }}</Link>
+                      <Link :href="`/field-stories/${story.slug}`">{{ t(story.title, story.title_en) }}</Link>
                     </h4>
-                    <p class="card-excerpt">{{ t(story.excerpt || story.content, story.excerpt_en || story.content_en, story.excerpt_ja || story.content_ja) }}</p>
-                    <Link :href="`/field-stories/${story.slug}`" class="read-link-sm">{{ t('Baca Selengkapnya →', 'Read More →', '続きを読む →') }}</Link>
+                    <p class="card-excerpt">{{ t(story.excerpt || story.content, story.excerpt_en || story.content_en) }}</p>
+                    <Link :href="`/field-stories/${story.slug}`" class="read-link-sm">{{ t('Baca Selengkapnya →', 'Read More →') }}</Link>
                   </div>
                 </div>
               </template>
               <template v-else>
-                <div class="empty-state">{{ t('Belum ada kegiatan terbaru.', 'No latest activities available.', '最新の活動はありません。') }}</div>
+                <div class="empty-state">{{ t('Belum ada kegiatan terbaru.', 'No latest activities available.') }}</div>
               </template>
             </div>
           </div>
@@ -323,11 +323,11 @@
     <!-- CTA Section -->
     <section class="section text-center" style="background: var(--color-primary-container); padding: 96px 0;">
       <div class="container">
-        <h2 class="headline-lg" style="color: var(--color-earth-black); margin-bottom: 24px;">{{ t(hc.cta_title, hc.cta_title_en, hc.cta_title_ja) || t('Siap Merevitalisasi Tanah Anda?', 'Ready to Revitalize Your Soil?', '土壌を活性化する準備はできていますか？') }}</h2>
+        <h2 class="headline-lg" style="color: var(--color-earth-black); margin-bottom: 24px;">{{ t(hc.cta_title, hc.cta_title_en) || t('Siap Merevitalisasi Tanah Anda?', 'Ready to Revitalize Your Soil?') }}</h2>
         <p class="body-lg" style="color: rgba(26,26,26,0.8); max-width: 640px; margin: 0 auto 40px; line-height: 28px;">
-          {{ t(hc.cta_desc, hc.cta_desc_en, hc.cta_desc_ja) || t('Mari bergabung dalam gerakan menuju pertanian Indonesia yang lebih bersih dan produktif.', 'Let’s join the movement towards a cleaner and more productive Indonesian agriculture.', 'よりクリーンで生産性の高いインドネシアの農業に向けた運動に参加しましょう。') }}
+          {{ t(hc.cta_desc, hc.cta_desc_en) || t('Mari bergabung dalam gerakan menuju pertanian Indonesia yang lebih bersih dan produktif.', 'Let’s join the movement towards a cleaner and more productive Indonesian agriculture.') }}
         </p>
-        <Link :href="hc.cta_button_link || '/contact'" class="btn btn-primary" style="padding: 16px 36px; font-size: 15px;">{{ t(hc.cta_button_text, hc.cta_button_text_en, hc.cta_button_text_ja) || t('Hubungi Ahli Kami', 'Contact Our Expert', '専門家に問い合わせる') }}</Link>
+        <Link :href="hc.cta_button_link || '/contact'" class="btn btn-primary" style="padding: 16px 36px; font-size: 15px;">{{ t(hc.cta_button_text, hc.cta_button_text_en) || t('Hubungi Ahli Kami', 'Contact Our Expert') }}</Link>
       </div>
     </section>
   </PublicLayout>
@@ -377,7 +377,7 @@ const aboutParagraphs = computed(() => {
     const defaultID = "PT. Mandraguna Pusaka Indonesia hadir di tengah kekhawatiran masyarakat terhadap pencemaran lingkungan yang telah berlangsung selama beberapa dekade.\n\nKami melihat inovasi dan visi besar dalam pemanfaatan sisa penyamakan kulit sapi—sumber daya yang kaya akan kandungan biologis organik dan nutrisi tinggi.\n\nKami memproses limbah penyamakan kulit ini secara cermat menjadi pupuk asam amino unggulan, dengan keyakinan bahwa segala sesuatu yang diawali dengan niat baik akan menghasilkan yang terbaik untuk warisan Indonesia.";
     const defaultEN = "PT. Mandraguna Pusaka Indonesia stands amidst public concern over environmental pollution that has persisted for decades.\n\nWe see innovation and a grand vision in utilizing beef tannery waste—a resource rich in organic biological elements and high nutritional value.\n\nWe meticulously process this tannery waste into premium amino acid fertilizer, believing that everything started with good intentions will yield the best for the heritage of Indonesia.";
     const defaultJA = "PT. Mandraguna Pusaka Indonesiaは、何十年も続いている環境汚染に対する社会的な懸念から生まれました。\n\n私たちは、有機的生物成分と高栄養に富んだ牛革鞣し工場の廃棄物を有効活用するイノベーション & 壮大なビジョンを持っています。\n\n良い意図から始まったすべてのことが、インドネシアの遺産にとって最高の結果をもたらすと信じ、この革なめし廃棄物をアミノ酸豊富な高品質の有機肥料へと丁寧に加工しています。";
-    const content = t(ha.value.about_content, ha.value.about_content_en, ha.value.about_content_ja) || t(defaultID, defaultEN, defaultJA);
+    const content = t(ha.value.about_content, ha.value.about_content_en) || t(defaultID, defaultEN);
     return content.split('\n\n').filter(p => p.trim());
 });
 

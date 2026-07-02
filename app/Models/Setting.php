@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
 {
-    protected $fillable = ['key', 'value', 'value_en', 'value_ja', 'type', 'group', 'label', 'sort_order'];
+    protected $fillable = ['key', 'value', 'value_en', 'type', 'group', 'label', 'sort_order'];
 
     /**
      * Get a setting value by key, with an optional default.
@@ -20,9 +20,9 @@ class Setting extends Model
     /**
      * Set a setting value by key.
      */
-    public static function set(string $key, mixed $value, mixed $valueEn = null, mixed $valueJa = null): void
+    public static function set(string $key, mixed $value, mixed $valueEn = null): void
     {
-        static::updateOrCreate(['key' => $key], ['value' => $value, 'value_en' => $valueEn, 'value_ja' => $valueJa]);
+        static::updateOrCreate(['key' => $key], ['value' => $value, 'value_en' => $valueEn]);
     }
 
     /**
@@ -38,7 +38,6 @@ class Setting extends Model
         foreach ($settings as $setting) {
             $result[$setting->key] = $setting->value;
             $result[$setting->key . '_en'] = $setting->value_en;
-            $result[$setting->key . '_ja'] = $setting->value_ja;
         }
         return $result;
     }
