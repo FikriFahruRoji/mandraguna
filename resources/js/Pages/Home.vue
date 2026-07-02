@@ -132,22 +132,9 @@
               </p>
             </div>
 
-            <div style="margin-bottom: 16px; border-radius: var(--rounded-md); overflow: hidden; background: #eee; border: 1px solid var(--color-border);">
+            <div style="margin-top: auto; border-radius: var(--rounded-md); overflow: hidden; background: #eee; border: 1px solid var(--color-border);">
               <img v-if="ht.transform_card3_image" :src="'/storage/' + ht.transform_card3_image" alt="" style="width: 100%; display: block; object-fit: cover;" />
-              <div v-else style="height: 140px; display: flex; align-items: center; justify-content: center; font-size: 48px; background: #eee; filter: grayscale(1);">🌱</div>
-            </div>
-            
-            <div style="background: #F3F4F6; padding: 16px; border-radius: var(--rounded-md); margin-top: auto; border: 1px solid var(--color-border);">
-              <ul style="display: flex; flex-direction: column; gap: 8px; list-style: none;">
-                <li class="label-caps" style="font-size: 11px; display: flex; align-items: center; gap: 8px; color: var(--color-on-surface); font-weight: 700;">
-                  <span style="width: 6px; height: 6px; background: var(--color-primary-container); border-radius: 50%;"></span>
-                  {{ t('100% DAUR ULANG', '100% RECYCLED') }}
-                </li>
-                <li class="label-caps" style="font-size: 11px; display: flex; align-items: center; gap: 8px; color: var(--color-on-surface); font-weight: 700;">
-                  <span style="width: 6px; height: 6px; background: var(--color-primary-container); border-radius: 50%;"></span>
-                  {{ t('BERBASIS BIOLOGIS', 'BIOLOGICAL BASE') }}
-                </li>
-              </ul>
+              <div v-else style="height: 180px; display: flex; align-items: center; justify-content: center; font-size: 48px; background: #eee; filter: grayscale(1);">🌱</div>
             </div>
           </div>
         </div>
