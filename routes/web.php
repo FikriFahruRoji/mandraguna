@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\PasswordController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\FieldStoryController;
 use App\Http\Controllers\Admin\MessageController;
@@ -45,6 +46,10 @@ Route::middleware('auth')->prefix('panel-umkm')->name('admin.')->group(function 
     // Settings
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::post('/settings', [SettingController::class, 'update'])->name('settings.update');
+
+    // Change Password
+    Route::get('/change-password', [PasswordController::class, 'edit'])->name('password.edit');
+    Route::post('/change-password', [PasswordController::class, 'update'])->name('password.update');
 
 
 
